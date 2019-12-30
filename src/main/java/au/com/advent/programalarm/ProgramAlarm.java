@@ -2,13 +2,11 @@ package au.com.advent.programalarm;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 
 public class ProgramAlarm {
 
@@ -42,7 +40,7 @@ public class ProgramAlarm {
 //            String[] intCodes = {"1","1","1","4","99","5","6","0","99"};
             resetMemory(intCodes);
         } catch (Exception ex) {
-            LOGGER.error("Exception occurred: {}", ex);
+            LOGGER.error("Exception occurred: {0}", ex);
             throw new RuntimeException("Exception occurred");
         }
     }
@@ -99,15 +97,6 @@ public class ProgramAlarm {
 
             LOGGER.debug("Replacing value in position {} from {} to {}", (i + 3), intCodeCommands.get(intCodeCommands.get(i + 3)), totalValue);
             intCodeCommands.put(intCodeCommands.get(i + 3),totalValue);
-        }
-    }
-
-    private static void displayResults() {
-        Iterator it = intCodeCommands.entrySet().iterator();
-
-        while (it.hasNext()) {
-            Map.Entry intCode = (Map.Entry) it.next();
-            LOGGER.info("Key: {} Value: {}", intCode.getKey(), intCode.getValue());
         }
     }
 
